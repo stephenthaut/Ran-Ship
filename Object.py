@@ -19,8 +19,7 @@ class Object(object):
     
     def search_contents(self, item_tag):
         """ Search self.contents, return an index if item exists."""
-        contents = self.list_contents()
-        if item_tag in contents: return contents.index(item_tag)
+        if item_tag in self.list_contents(): return True
         else: return False
     
     def open_container(self):
@@ -28,3 +27,7 @@ class Object(object):
         for item in self.contents: yield item
         self.contents = []
     
+
+
+x = Object(1,"Laser Pistol", "A standard-issue laser pistol, with a hydrogen battery and electronic sight.", [])
+print x
