@@ -13,13 +13,9 @@ class Object(object):
         """ Return a str() description of the object."""
         return "%(n)s: %(d)s" % {'n':self.name, 'd':self.description}
     
-    def list_contents(self):
-        """ Return a list of item tags for items in self.contents."""
-        return [item.tag for item in self.contents]
-    
     def search_contents(self, item_tag):
         """ Search self.contents, return an index if item exists."""
-        if item_tag in self.list_contents(): return True
+        if item_tag in [i.tag for i in self.contents]: return True
         else: return False
     
     def open_container(self):
@@ -27,7 +23,3 @@ class Object(object):
         for item in self.contents: yield item
         self.contents = []
     
-
-
-x = Object(1,"Laser Pistol", "A standard-issue laser pistol, with a hydrogen battery and electronic sight.", [])
-print x
