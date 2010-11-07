@@ -13,11 +13,9 @@ class Ship(object):
         key = ''.join(random.choice(self.keygen) for n in range(4))
         return "[%(k)s]" % {'k':key}
     
-    def add_object(self, the_object):
+    def add_object(self, tag, the_object):
         """Add an object to self.objects."""
-        tag = self.generate_tag()
         self.objects[tag] = the_object
-        return tag
     
     def access_object(self, tag):
         """Return an object from the catalogue."""
