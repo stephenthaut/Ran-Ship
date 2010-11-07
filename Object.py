@@ -14,7 +14,7 @@ class Object(object):
         return "%(n)s: %(d)s" % {'n':self.name, 'd':self.description}
     
     def search_contents(self, item_tag):
-        """ Search self.contents, return an index if item exists."""
+        """ Search self.contents, return True if item exists."""
         if item_tag in [i.tag for i in self.contents]: return True
         else: return False
     
