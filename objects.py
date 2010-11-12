@@ -84,7 +84,7 @@ class Ship(object):
 
 
 # Classes inheriting from Object.
-class Item(Object.Object):
+class Item(Object):
     def __init__(self, **values):
         super(Item, self).__init__(values)
         self.value = values['value']
@@ -107,5 +107,23 @@ class Item(Object.Object):
         if self.condition < 100: self.condition = 100
     
 
-
-
+class Room(Object):
+    def __init__(self, **values):
+        super(Room, self).__init__(values)
+        self.doors = values['doors']
+        self.exits = values['exits']
+        self.chars = values['chars']
+    
+    def check_door(self, direction):
+        return self.doors[direction].status()
+    
+    def check_exit(self, direction):
+        return self.check('exits', direction)
+    
+    def check_char(self, direction):
+        return self.check('chars', direction)
+    
+    def take_item(self, item):
+        return self.take('contents', item)
+    
+    def 
